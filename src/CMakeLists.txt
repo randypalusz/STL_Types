@@ -1,0 +1,5 @@
+add_subdirectory(IO)
+add_subdirectory(Example)
+add_subdirectory(vector)
+add_subdirectory(hashtable)
+add_subdirectory(linkedlist)
