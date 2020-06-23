@@ -11,8 +11,14 @@ class TreeElement {
 		data_ = data;
 		left_ = nullptr;
 		right_ = nullptr;
-		parent = nullptr;
+		parent_ = nullptr;
 	}
+  TreeElement() { 
+    data_ = nullptr;
+    left_ = nullptr;
+    right_ = nullptr;
+    parent_ = nullptr;  
+  }
 	~TreeElement() = default;
 	auto getData() -> T { return data_; }
 	auto getLeft() -> TreeElement* { return left_; }
