@@ -14,7 +14,7 @@ class TreeElement {
 		parent_ = nullptr;
 	}
   TreeElement() { 
-    data_ = nullptr;
+    data_ = 0;
     left_ = nullptr;
     right_ = nullptr;
     parent_ = nullptr;  
