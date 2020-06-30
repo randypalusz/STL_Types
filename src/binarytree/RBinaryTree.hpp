@@ -13,14 +13,15 @@ class BinaryTree {
   BinaryTree() { root_ = nullptr; }
   ~BinaryTree();
   void insert(T data);
-  //TODO: printInOrder2D();
   void printInOrder();
+  void printInOrder2D();
   auto exists(T val) -> bool;
 
  private:
   TreeElement<T>* root_;
   void Destroy(TreeElement<T>* node);
   void printInOrder(TreeElement<T>* node);
+  void printInOrder2D(TreeElement<T>* node, int level);
 };
 }  // namespace rp
 

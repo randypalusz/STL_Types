@@ -33,4 +33,12 @@ int main() {
   std::cout << bt.exists(10) << std::endl;
   LOG("Checking if 23 exists...");
   std::cout << bt.exists(23) << std::endl;
+  LOG("Adding some more elements before 2D print...");
+  bt.insert(102);
+  bt.insert(108);
+  bt.insert(155);
+  bt.insert(101);
+  bt.insert(103);
+  LOG("Printing 2D...");
+  bt.printInOrder2D();
 }

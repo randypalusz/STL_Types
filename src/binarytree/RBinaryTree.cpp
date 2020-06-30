@@ -78,6 +78,11 @@ void BinaryTree<T>::printInOrder() {
 }
 
 template <typename T>
+void BinaryTree<T>::printInOrder2D() {
+  printInOrder2D(root_, 0);
+}
+
+template <typename T>
 void BinaryTree<T>::printInOrder(TreeElement<T>* node) {
   if (node->getLeft()) {
     printInOrder(node->getLeft());
@@ -90,4 +95,19 @@ void BinaryTree<T>::printInOrder(TreeElement<T>* node) {
   }
 }
 
+template <typename T>
+void BinaryTree<T>::printInOrder2D(TreeElement<T>* node, int level) {
+  int spaces = 5;
+  if (node->getRight()) {
+    printInOrder2D(node->getRight(), level + 1);
+  }
+  for (int i = 0; i < (level * spaces); i++) {
+    std::cout << " ";
+  }
+  std::cout << node->getData() << std::endl;
+
+  if (node->getLeft()) {
+    printInOrder2D(node->getLeft(), level + 1);
+  }
+}
 }  // namespace rp
