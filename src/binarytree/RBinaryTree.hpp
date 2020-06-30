@@ -13,6 +13,7 @@ class BinaryTree {
   BinaryTree() { root_ = nullptr; }
   ~BinaryTree();
   void insert(T data);
+  //TODO: printInOrder2D();
   void printInOrder();
   auto exists(T val) -> bool;
 
