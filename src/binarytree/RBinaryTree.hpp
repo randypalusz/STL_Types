@@ -14,6 +14,7 @@ class BinaryTree {
   ~BinaryTree();
   void insert(T data);
   void printInOrder();
+  auto exists(T val) -> bool;
 
  private:
   TreeElement<T>* root_;

@@ -58,6 +58,21 @@ void BinaryTree<T>::insert(T data) {
 }
 
 template <typename T>
+auto BinaryTree<T>::exists(T val) -> bool {
+  TreeElement<T>* traverse = root_;
+  while (traverse) {
+    if (traverse->getData() == val) {
+      return true;
+    } else if (val < traverse->getData()) {
+      traverse = traverse->getLeft();
+    } else {
+      traverse = traverse->getRight();
+    }
+  }
+  return false;
+}
+
+template <typename T>
 void BinaryTree<T>::printInOrder() {
   printInOrder(root_);
 }
