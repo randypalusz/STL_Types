@@ -3,6 +3,7 @@
 #include "RBinaryTree.hpp"
 
 #include <iostream>
+#include <vector>
 
 #include "RTreeElement.hpp"
 
@@ -57,6 +58,19 @@ void BinaryTree<T>::insert(T data) {
   }
 }
 
+template <typename T>
+void BinaryTree<T>::insert(T* data, int size) {
+  for (int i = 0; i < size; i++) {
+    insert(data[i]);
+  }
+}
+
+template <typename T>
+void BinaryTree<T>::insert(std::vector<T>& data) {
+  for (auto& element : data) {
+    insert(element);
+  }
+}
 template <typename T>
 auto BinaryTree<T>::exists(T val) -> bool {
   TreeElement<T>* traverse = root_;

@@ -3,6 +3,7 @@
 #include "RBinaryTree.hpp"
 
 #include <iostream>
+#include <vector>
 
 #include "RBinaryTree.cpp"
 #include "RTreeElement.hpp"
@@ -39,6 +40,14 @@ int main() {
   bt.insert(155);
   bt.insert(101);
   bt.insert(103);
+  LOG("Insert vector of elements...");
+  std::vector<int> v{160, 16, 2, 106};
+  bt.insert(v);
+  LOG("Insert array of elements...");
+  int array[] = {156, 401, 124, 107};
+  bt.insert(array, 4);
+  LOG("Printing BT in order...");
+  bt.printInOrder();
   LOG("Printing 2D...");
   bt.printInOrder2D();
 }
