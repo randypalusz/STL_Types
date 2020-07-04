@@ -66,7 +66,7 @@ void BinaryTree<T>::insert(T* data, int size) {
 }
 
 template <typename T>
-void BinaryTree<T>::insert(std::vector<T>& data) {
+void BinaryTree<T>::insert(const std::vector<T>& data) {
   for (auto& element : data) {
     insert(element);
   }

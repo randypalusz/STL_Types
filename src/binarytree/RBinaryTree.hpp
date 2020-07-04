@@ -16,7 +16,7 @@ class BinaryTree {
   ~BinaryTree();
   void insert(T data);
   void insert(T* data, int size);
-  void insert(std::vector<T>& data);
+  void insert(const std::vector<T>& data);
   void printInOrder();
   void printInOrder2D();
   auto exists(T val) -> bool;
