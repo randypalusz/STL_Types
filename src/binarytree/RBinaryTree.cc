@@ -50,4 +50,7 @@ int main() {
   bt.printInOrder();
   LOG("Printing 2D...");
   bt.printInOrder2D();
+  LOG("Removing 107...");
+  bt.remove(107);
+  bt.printInOrder2D();
 }

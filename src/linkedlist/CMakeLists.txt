@@ -20,6 +20,6 @@ set(Sources
 
 add_executable(RLinkedList.cc RLinkedList.cpp RLinkedList.cc)
 
-add_library(${This} STATIC ${Sources} ${Headers})
+add_library(${This} SHARED ${Sources} ${Headers})
 target_include_directories(${This} PUBLIC ./)
 

@@ -71,6 +71,22 @@ void BinaryTree<T>::insert(const std::vector<T>& data) {
     insert(element);
   }
 }
+
+template <typename T>
+void BinaryTree<T>::remove(T data) {
+  TreeElement<T>* node = getParent(data);
+  if (node == nullptr) {
+    return;
+  }
+  if (data < node->getData()) {
+    delete node->getLeft();
+    node->setLeft(nullptr);
+  } else if (data > node->getData()) {
+    delete node->getRight();
+    node->setRight(nullptr);
+  }
+}
+
 template <typename T>
 auto BinaryTree<T>::exists(T val) -> bool {
   TreeElement<T>* traverse = root_;
@@ -84,6 +100,24 @@ auto BinaryTree<T>::exists(T val) -> bool {
     }
   }
   return false;
+}
+
+template <typename T>
+auto BinaryTree<T>::getParent(T val) -> TreeElement<T>* {
+  TreeElement<T>* traverse = root_;
+  TreeElement<T>* parent = nullptr;
+  while (traverse) {
+    if (traverse->getData() == val) {
+      return parent;
+    } else if (val < traverse->getData()) {
+      parent = traverse;
+      traverse = traverse->getLeft();
+    } else {
+      parent = traverse;
+      traverse = traverse->getRight();
+    }
+  }
+  return nullptr;
 }
 
 template <typename T>

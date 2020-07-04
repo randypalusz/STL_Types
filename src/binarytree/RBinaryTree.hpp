@@ -17,12 +17,14 @@ class BinaryTree {
   void insert(T data);
   void insert(T* data, int size);
   void insert(const std::vector<T>& data);
+  void remove(T data);
   void printInOrder();
   void printInOrder2D();
   auto exists(T val) -> bool;
 
  private:
   TreeElement<T>* root_;
+  auto getParent(T val) -> TreeElement<T>*;
   void Destroy(TreeElement<T>* node);
   void printInOrder(TreeElement<T>* node);
   void printInOrder2D(TreeElement<T>* node, int level);
