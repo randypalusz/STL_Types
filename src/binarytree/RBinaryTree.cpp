@@ -79,14 +79,9 @@ void BinaryTree<T>::remove(T data) {
     return;
   }
   if (data < node->getData()) {
-    // delete node->getLeft();
-    // node->setLeft(nullptr);
     removeRecursive(node->getLeft());
     node->setLeft(nullptr);
   } else if (data > node->getData()) {
-    // delete node->getRight();
-    // node->setRight(nullptr);
-    std::cout << "enter removeRecursive from remove" << std::endl;
     removeRecursive(node->getRight());
     node->setRight(nullptr);
   }
