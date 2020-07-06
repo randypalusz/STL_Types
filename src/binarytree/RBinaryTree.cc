@@ -53,4 +53,7 @@ int main() {
   LOG("Removing 107...");
   bt.remove(107);
   bt.printInOrder2D();
+  LOG("Removing 108...");
+  bt.remove(108);
+  bt.printInOrder2D();
 }

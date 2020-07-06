@@ -26,6 +26,7 @@ class BinaryTree {
   TreeElement<T>* root_;
   auto getParent(T val) -> TreeElement<T>*;
   void Destroy(TreeElement<T>* node);
+  void removeRecursive(TreeElement<T>* node);
   void printInOrder(TreeElement<T>* node);
   void printInOrder2D(TreeElement<T>* node, int level);
 };

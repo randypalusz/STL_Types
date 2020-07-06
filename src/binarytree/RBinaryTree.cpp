@@ -79,10 +79,15 @@ void BinaryTree<T>::remove(T data) {
     return;
   }
   if (data < node->getData()) {
-    delete node->getLeft();
+    // delete node->getLeft();
+    // node->setLeft(nullptr);
+    removeRecursive(node->getLeft());
     node->setLeft(nullptr);
   } else if (data > node->getData()) {
-    delete node->getRight();
+    // delete node->getRight();
+    // node->setRight(nullptr);
+    std::cout << "enter removeRecursive from remove" << std::endl;
+    removeRecursive(node->getRight());
     node->setRight(nullptr);
   }
 }
@@ -128,6 +133,18 @@ void BinaryTree<T>::printInOrder() {
 template <typename T>
 void BinaryTree<T>::printInOrder2D() {
   printInOrder2D(root_, 0);
+}
+
+template <typename T>
+void BinaryTree<T>::removeRecursive(TreeElement<T>* node) {
+  if (!node) {
+    return;
+  }
+
+  removeRecursive(node->getRight());
+  removeRecursive(node->getLeft());
+
+  delete node;
 }
 
 template <typename T>
