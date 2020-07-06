@@ -51,9 +51,18 @@ int main() {
   LOG("Printing 2D...");
   bt.printInOrder2D();
   LOG("Removing 107...");
-  bt.remove(107);
+  bt.remove(107, true);
   bt.printInOrder2D();
   LOG("Removing 108...");
-  bt.remove(108);
+  bt.remove(108, true);
+  bt.printInOrder2D();
+  LOG("Removing 10 and keeping contents...");
+  bt.remove(10, false);
+  bt.printInOrder2D();
+  LOG("Removing 102 and keeping contents...");
+  bt.remove(102);
+  bt.printInOrder2D();
+  LOG("Removing 101 and keeping contents...");
+  bt.remove(101);
   bt.printInOrder2D();
 }

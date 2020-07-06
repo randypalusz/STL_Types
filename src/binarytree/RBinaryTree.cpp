@@ -73,17 +73,25 @@ void BinaryTree<T>::insert(const std::vector<T>& data) {
 }
 
 template <typename T>
-void BinaryTree<T>::remove(T data) {
+void BinaryTree<T>::remove(T data, bool deleteChildren) {
   TreeElement<T>* node = getParent(data);
   if (node == nullptr) {
     return;
   }
   if (data < node->getData()) {
-    removeRecursive(node->getLeft());
-    node->setLeft(nullptr);
+    if (deleteChildren) {
+      removeRecursive(node->getLeft());
+      node->setLeft(nullptr);
+    } else {
+      removeAndKeep(node->getLeft(), true);
+    }
   } else if (data > node->getData()) {
-    removeRecursive(node->getRight());
-    node->setRight(nullptr);
+    if (deleteChildren) {
+      removeRecursive(node->getRight());
+      node->setRight(nullptr);
+    } else {
+      removeAndKeep(node->getRight(), true);
+    }
   }
 }
 
@@ -140,6 +148,48 @@ void BinaryTree<T>::removeRecursive(TreeElement<T>* node) {
   removeRecursive(node->getLeft());
 
   delete node;
+}
+
+template <typename T>
+T BinaryTree<T>::removeAndKeep(TreeElement<T>* node, bool firstEnter) {
+  T replacementValue;
+
+  if (firstEnter) {
+    if (!node->getRight() && !node->getLeft()) {
+      replacementValue = swapNodesAndDeleteLeaf(node);
+      return replacementValue;
+    }
+    replacementValue = removeAndKeep(node->getRight(), false);
+    node->updateData(replacementValue);
+    return replacementValue;
+  }
+
+  // condition if left-most leaf is found
+  if (!node->getRight() && !node->getLeft()) {
+    replacementValue = swapNodesAndDeleteLeaf(node);
+    return replacementValue;
+  } else if (node->getLeft()) {
+    replacementValue = removeAndKeep(node->getLeft(), false);
+  } else {
+    replacementValue = removeAndKeep(node->getRight(), false);
+  }
+
+  return replacementValue;
+
+  std::cout << "removeAndKeep for data: " << node->getData() << std::endl;
+}
+
+template <typename T>
+T BinaryTree<T>::swapNodesAndDeleteLeaf(TreeElement<T>* node) {
+  T replacementValue = node->getData();
+  TreeElement<T>* parent = getParent(replacementValue);
+  if (replacementValue > parent->getData()) {
+    parent->setRight(nullptr);
+  } else {
+    parent->setLeft(nullptr);
+  }
+  delete node;
+  return replacementValue;
 }
 
 template <typename T>
