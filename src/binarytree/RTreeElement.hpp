@@ -11,13 +11,11 @@ class TreeElement {
     data_ = data;
     left_ = nullptr;
     right_ = nullptr;
-    parent_ = nullptr;
   }
   TreeElement() {
     data_ = 0;
     left_ = nullptr;
     right_ = nullptr;
-    parent_ = nullptr;
   }
   ~TreeElement() = default;
   auto getData() -> T { return data_; }
@@ -30,7 +28,6 @@ class TreeElement {
  private:
   TreeElement* left_;
   TreeElement* right_;
-  TreeElement* parent_;
   T data_;
 };
 }  // namespace rp
